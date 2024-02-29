@@ -30,10 +30,8 @@ int remove_alias(comm_t *comm, char *str)
 
 	val = string_char(str, '=');
 	if (!val)
-	{
 		y = 3;
-		return (1);
-	}
+	return (1);
 	if (x == y)
 		y = 2;
 	c = *val;
@@ -66,10 +64,8 @@ int create_alias(comm_t *comm, char *str)
 	if (!val)
 		return (1);
 	if (!*++val)
-	{
 		y = 2;
-		return (remove_alias(comm, str));
-	}
+	return (remove_alias(comm, str));
 	y = 3;
 	remove_alias(comm, str);
 	return (add_node_end(&(comm->alias), str, 0) == NULL);
