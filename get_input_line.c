@@ -148,7 +148,7 @@ int get_next_line(comm_t *comm, char **ptr, size_t *length)
 	r = read_buffer(comm, buf, &len);
 	if (r == -1 || (r == 0 && len == 0))
 		return (-1);
-	c = string_char(buf + i, '\n');
+	c = string_char(buf + 1, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = _realloc(p, s, s ? s + k : k + 1);
 	if (!new_p)
