@@ -50,8 +50,10 @@ int string_compare(char *s1, char *s2)
 char *starting_string(const char *str, const char *src)
 {
 	while (*src)
+	{
 		if (*src++ != *str++)
 			return (NULL);
+	}
 	return ((char *)str);
 }
 
