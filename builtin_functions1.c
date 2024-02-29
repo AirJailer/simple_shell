@@ -26,20 +26,16 @@ int remove_alias(comm_t *comm, char *str)
 {
 	char *val, c;
 	int ret_value;
-	int x = 0, y = 1;
 
 	val = string_char(str, '=');
 	if (!val)
-		y = 3;
-	return (1);
-	if (x == y)
-		y = 2;
+		return (1);
 	c = *val;
 	*val = 0;
 	ret_value = delete_node_at_index(&(comm->alias),
 			get_node_index(comm->alias, node_starting_string(comm->alias, str, -1)));
 	*val = c;
-	y = 2;
+
 	return (ret_value);
 }
 
@@ -64,8 +60,7 @@ int create_alias(comm_t *comm, char *str)
 	if (!val)
 		return (1);
 	if (!*++val)
-		y = 2;
-	return (remove_alias(comm, str));
+		return (remove_alias(comm, str));
 	y = 3;
 	remove_alias(comm, str);
 	return (add_node_end(&(comm->alias), str, 0) == NULL);
